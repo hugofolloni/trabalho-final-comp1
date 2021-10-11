@@ -15,17 +15,16 @@ void playAgain(){
     }
 }
 
-void userTries(n1, n2, n3, n4, n5, n6){
-    char string[6] = "XXXXXX";
-    int shuffled[6], j;
+void userTries(n1, n2, n3, n4, n5, n6, n7, n8){
+    char string[8] = "XXXXXXXX";
+    int shuffled[8], j;
 
-    shuffled[0] = n1; shuffled[1] = n2; shuffled[2] = n3; shuffled[3] = n4; shuffled[4] = n5; shuffled[5] = n6; 
+    shuffled[0] = n1; shuffled[1] = n2; shuffled[2] = n3; shuffled[3] = n4; shuffled[4] = n5; shuffled[5] = n6, shuffled[6] = n7, shuffled[7] = n8; 
 
-    printf("\n\n\n  _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5]);
-
+            printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
     int i;
 
-    for(i = 0; i < 6; i++){
+    for(i = 0; i < 8; i++){
         int chute, carta, posicao;
 
         printf("\n\nMe fale a posicao da carta e seu valor [posicao valor]:   ");
@@ -34,20 +33,52 @@ void userTries(n1, n2, n3, n4, n5, n6){
         posicao = carta - 1;
 
         if(chute == shuffled[posicao]){
-            system("cls");
+            #ifdef _WIN32
+                system("cls");
+            #endif
+            #ifdef linux
+                system("clear");
+            #endif
 
             printf("Voce acertou o numero da carta %d", carta);
             string[posicao] = shuffled[posicao]+'0';
-            printf("\n\n\n  _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5]);
+        
+            printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
 
         }
         else {
-            printf("\n\nGAME OVER! ");
+            printf("\n\nGAME OVER! \n\n");
+            printf("    _______________         \n");
+            printf("   /               \\       \n"); 
+            printf("  /                 \\      \n");
+            printf("//                   \\/\\  \n");
+            printf("\\|   XXXX     XXXX   | /   \n");
+            printf(" |   XXXX     XXXX   |/     \n");
+            printf(" |   XXX       XXX   |      \n");
+            printf(" |                   |      \n");
+            printf(" \\__      XXX      __/     \n");
+            printf("   |\\     XXX     /|       \n");
+            printf("   | |           | |        \n");
+            printf("   | I I I I I I I |        \n");
+            printf("   |  I I I I I I  |        \n");
+            printf("   \\_             _/       \n");
+            printf("     \\_         _/         \n");
+            printf("       \\_______/           \n");
             playAgain();
         }
     }
 
-    printf("\n\n***** PARABENS *****\n Voce chegou ao fim e acertou todos os numeros!");
+    printf("\n\n***** PARABENS *****\n Voce chegou ao fim e acertou todos os numeros!\n\n");
+    printf("       ___________      \n");
+    printf("      '._==_==_=_.'     \n");
+    printf("      .-\\:      /-.    \n");
+    printf("     | (|:.     |) |    \n");
+    printf("      '-|:.     |-'     \n");
+    printf("        \\::.    /      \n");
+    printf("         '::. .'        \n");
+    printf("           ) (          \n");
+    printf("         _.' '._        \n");
+    printf("        '-------'       \n");
     playAgain();
 
 }
@@ -60,26 +91,41 @@ void runGame(sleepTime){
         shuffled[i] = j;
     };
 
+    #ifdef _WIN32
     system("cls");
+    #endif
+    #ifdef linux
+    system("clear");
+    #endif
 
     for(timing = sleepTime; timing > 0; timing--){
         printf("Voce deve memorizar esta sequencia em %d segundos. Boa sorte!\n\n", sleepTime);
 
         printf("Voce tem %d segundos", timing);
-        printf("\n  _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |\n |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |\n |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5]);
+        printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5], shuffled[6], shuffled[7]);
         sleep(1);
-        system("cls");
+    #ifdef _WIN32
+    system("cls");
+    #endif
+    #ifdef linux
+    system("clear");
+    #endif
     }
 
-    userTries(shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5]);
+    userTries(shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5], shuffled[6], shuffled[7]);
 }
 
 int main(void){
     int nivel, sleepTime;
 
-    system("cls");
+        #ifdef _WIN32
+        system("cls");
+        #endif
+        #ifdef linux
+        system("clear");
+        #endif
 
-    printf("Voce devera decorar os numeros abaixos!\n\n");
+    printf("Voce devera decorar os 8 numeros abaixo!\n\n");
     printf("Escolha o nivel:\n  [1] 20seg\n  [2] 10seg\n  [3] 5seg\n"); 
     scanf("%d", &nivel);
 
@@ -95,7 +141,12 @@ int main(void){
     else{
         printf("Você digitou um valor invalido, retornar ao começo!");
         sleep(3);
-        system("cls");
+                #ifdef _WIN32
+                system("cls");
+                #endif
+                #ifdef linux
+                system("clear");
+                #endif
         return main();
     }
 
