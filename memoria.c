@@ -93,10 +93,10 @@ void runGame(sleepTime){
     };
 
     #ifdef _WIN32
-    system("cls");
+        system("cls");
     #endif
     #ifdef linux
-    system("clear");
+        system("clear");
     #endif
 
     for(timing = sleepTime; timing > 0; timing--){
@@ -105,12 +105,13 @@ void runGame(sleepTime){
         printf("Voce tem %d segundos", timing);
         printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |   |   %d   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5], shuffled[6], shuffled[7]);
         sleep(1);
-    #ifdef _WIN32
-    system("cls");
-    #endif
-    #ifdef linux
-    system("clear");
-    #endif
+
+        #ifdef _WIN32
+            system("cls");
+        #endif
+        #ifdef linux
+            system("clear");
+        #endif
     }
 
     userTries(shuffled[0], shuffled[1], shuffled[2], shuffled[3], shuffled[4], shuffled[5], shuffled[6], shuffled[7]);
@@ -119,12 +120,12 @@ void runGame(sleepTime){
 int main(void){
     int nivel, sleepTime;
 
-        #ifdef _WIN32
+    #ifdef _WIN32
         system("cls");
-        #endif
-        #ifdef linux
+    #endif
+    #ifdef linux
         system("clear");
-        #endif
+    #endif
 
     printf("Voce devera decorar os 8 numeros abaixo!\n\n");
     printf("Escolha o nivel:\n  [1] 20seg\n  [2] 10seg\n  [3] 5seg\n"); 
@@ -142,12 +143,14 @@ int main(void){
     else{
         printf("Você digitou um valor invalido, retornar ao começo!");
         sleep(3);
-                #ifdef _WIN32
-                system("cls");
-                #endif
-                #ifdef linux
-                system("clear");
-                #endif
+
+        #ifdef _WIN32
+            system("cls");
+        #endif
+        #ifdef linux
+            system("clear");
+        #endif
+
         return main();
     }
 
