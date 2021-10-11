@@ -21,16 +21,15 @@ void userTries(n1, n2, n3, n4, n5, n6, n7, n8){
 
     shuffled[0] = n1; shuffled[1] = n2; shuffled[2] = n3; shuffled[3] = n4; shuffled[4] = n5; shuffled[5] = n6, shuffled[6] = n7, shuffled[7] = n8; 
 
-            printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
-    int i;
+    printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
+
+    int i, posicao = 0;
 
     for(i = 0; i < 8; i++){
-        int chute, carta, posicao;
+        int chute, carta = posicao + 1;
 
-        printf("\n\nMe fale a posicao da carta e seu valor [posicao valor]:   ");
-        scanf("%d %d", &carta, &chute);
-
-        posicao = carta - 1;
+        printf("\n\nMe fale o valor da carta %d:   ", carta);
+        scanf("%d", &chute);
 
         if(chute == shuffled[posicao]){
             #ifdef _WIN32
@@ -45,6 +44,7 @@ void userTries(n1, n2, n3, n4, n5, n6, n7, n8){
         
             printf("\n  _______     _______     _______     _______     _______     _______     _______     _______  \n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |   |   %c   |\n |       |   |       |   |       |   |       |   |       |   |       |   |       |   |       |\n |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______|   |_______| ", string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
 
+            posicao++;
         }
         else {
             printf("\n\nGAME OVER! \n\n");
@@ -64,6 +64,7 @@ void userTries(n1, n2, n3, n4, n5, n6, n7, n8){
             printf("   \\_             _/       \n");
             printf("     \\_         _/         \n");
             printf("       \\_______/           \n");
+
             playAgain();
         }
     }
